@@ -485,12 +485,10 @@ Useful artifacts:
 
 ### 16. Local Resource Preparation
 
-The public GitHub repository keeps the project lightweight enough for code release and version control. Some large local resources are therefore not included in the GitHub snapshot and should be prepared manually before full training.
+The public GitHub repository already includes the code, the inductive benchmark splits, and the precomputed 3D molecular features used by the current project. Only a small number of large runtime resources still need to be prepared locally when required.
 
-Resources typically kept outside the GitHub repo:
+Resources that are still not included in the GitHub repo:
 
-- full benchmark datasets under `Data/` except `Data/sample_data/`
-- precomputed 3D molecular features under `3D_Features/`
 - the main ESM checkpoint `pretrained/esm/esm1b_t33_650M_UR50S.pt`
 - local training outputs such as `results_adaptive/` and `trained_models_adaptive/`
 
@@ -500,14 +498,17 @@ Expected local paths:
 HiSIME-DTI/
 ├── Data/
 ├── 3D_Features/
-└── pretrained/esm/esm1b_t33_650M_UR50S.pt
+├── pretrained/esm/esm1b_t33_650M_UR50S.pt
+├── results_adaptive/
+└── trained_models_adaptive/
 ```
 
 If these resources are missing:
 
 - training can still be inspected from code level
-- `Data/sample_data/` can still be used as a small example
-- full experiments will require restoring the complete local resources to the paths above
+- the repository datasets and `3D_Features/` can still be used directly
+- full training that depends on ESM embeddings requires restoring `pretrained/esm/esm1b_t33_650M_UR50S.pt`
+- previous experiment logs or checkpoints require the corresponding local output directories
 
 ### 17. References
 
@@ -999,12 +1000,10 @@ results_adaptive/kiba/seed14/
 
 ### 16. 本地资源准备说明
 
-公开的 GitHub 仓库需要保持适合代码发布与版本管理的体量，因此有一部分本地大资源不会直接包含在 GitHub 快照中，完整训练前需要手动补齐。
+当前公开的 GitHub 仓库已经包含了代码、归纳式基准数据划分以及预计算 3D 分子特征。现在仍需要按需在本地准备的，只剩少量运行期大资源。
 
-通常不会直接放进 GitHub 仓库的大资源包括：
+当前仍未包含在 GitHub 仓库中的资源包括：
 
-- `Data/` 下除 `Data/sample_data/` 以外的完整基准数据
-- `3D_Features/` 下的预计算 3D 分子特征
 - 主 ESM 权重 `pretrained/esm/esm1b_t33_650M_UR50S.pt`
 - 本地训练输出，如 `results_adaptive/` 和 `trained_models_adaptive/`
 
@@ -1014,14 +1013,17 @@ results_adaptive/kiba/seed14/
 HiSIME-DTI/
 ├── Data/
 ├── 3D_Features/
-└── pretrained/esm/esm1b_t33_650M_UR50S.pt
+├── pretrained/esm/esm1b_t33_650M_UR50S.pt
+├── results_adaptive/
+└── trained_models_adaptive/
 ```
 
 如果这些资源暂时缺失：
 
 - 仍然可以查看完整代码逻辑
-- 仍然可以用 `Data/sample_data/` 做小样例格式检查
-- 但若要复现实验，需要把完整本地资源恢复到上述路径
+- 仓库中的数据与 `3D_Features/` 仍然可以直接使用
+- 如果训练流程依赖 ESM 表征，则需要补齐 `pretrained/esm/esm1b_t33_650M_UR50S.pt`
+- 如果需要历史实验日志或已有 checkpoint，则需要保留对应的本地输出目录
 
 ### 17. 参考项目
 
