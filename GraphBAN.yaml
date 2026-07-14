@@ -1,0 +1,20 @@
+SOLVER:
+  BATCH_SIZE: 64  #每次训练处理 64 个样本。影响内存使用和收敛速度。
+  MAX_EPOCH: 50 #最大训练轮数，即整个训练集会被训练 50 次。
+  LR: 1e-5  #学习率（Learning Rate）。决定模型更新权重的速度，1e-5 是比较小的学习率，适合微调预训练模型。
+  SEED: 18
+
+DA:
+  TASK: False #当前不使用特定领域任务的迁移
+  USE: False  #整体上是否使用领域适配技术，例如从 Pfam 迁移到 BindingDB，当前是禁用状态。
+
+DECODER:
+  BINARY: 1 #表示这是一个 二分类任务
+
+FUSION:
+  TYPE: "bottleneck"     # 使用注意力瓶颈融合 (bottleneck) 或原始注意力融合 (attention)
+  NUM_LATENTS: 4         # 瓶颈tokens数量，推荐4-8，越小越强制压缩信息
+  DROPOUT: 0.1           # Dropout率，防止过拟合
+
+# Config below only when you use comet
+

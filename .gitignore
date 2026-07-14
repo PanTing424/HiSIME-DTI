@@ -1,0 +1,34 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+results/
+outputs/
+logs/
+*.log
+output.txt
+
+results/
+results_adaptive/
+trained_models/
+trained_models_adaptive/
+
+.DS_Store
+
+# Large local resources kept outside public git history
+Data/**
+!Data/sample_data/
+!Data/sample_data/**
+3D_Features/**
+pretrained/esm/*.pt
+pretrained/esm/*.pth
+pretrained/esm/*.bin
+
+# Optional local checkpoints and caches
+*.ckpt
+*.pt
+*.pth
+!test_full_model.py

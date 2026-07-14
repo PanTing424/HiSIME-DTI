@@ -1,0 +1,53 @@
+SOLVER:
+  BATCH_SIZE: 32
+  MAX_EPOCH: 50
+  LR: 1e-5
+  DA_LR: 5e-5  # 恢复到原始版本的5e-5
+  SEED: 12
+
+DA:
+  TASK: True
+  USE: True
+  METHOD: "CDAN"
+  USE_ENTROPY: False  # 恢复到原始版本的False
+  RANDOM_LAYER: True
+  ORIGINAL_RANDOM: True
+  RANDOM_DIM: 256
+  INIT_EPOCH: 10  # 恢复到原始版本的10
+  LAMB_DA: 0.3  # 恢复到原始版本的0.3
+  LAMB_MAX: 0.3  # 保持与LAMB_DA一致，避免trainer.py使用错误的值
+  ALPHA: 0.2  # 保留此参数以兼容trainer.py    
+
+
+DECODER:
+  BINARY: 2
+
+FUSION:
+  TYPE: "bottleneck"     # 使用注意力瓶颈融合 (bottleneck) 或原始注意力融合 (attention)
+  NUM_LATENTS: 4         # 瓶颈tokens数量，推荐4-8，越小越强制压缩信息
+  DROPOUT: 0.1           # Dropout率，防止过拟合
+  USE_RESIDUAL: True     # 在瓶颈融合结果和原始模态之间再做一次残差混合
+  RESIDUAL_MODE: "gated" # 可选: fixed / gated / learned
+  FIXED_ALPHA: 0.5       # fixed模式下使用的残差权重
+
+BCN:
+  TYPE: cross_mamba     # 可选：ban / cross_mamba / parallel
+  HEADS: 2              # ⭐ 改为2，与inductive_mode_32一致（仅BAN用）
+
+CROSS_MAMBA:
+  D_MODEL: 128          
+  N_LAYERS: 2
+  D_STATE: 128 #16,32,64
+  D_CONV: 2
+  EXPAND: 2
+  DROPOUT: 0.1
+  USE_MAMBA2: false
+  MAX_LEN: 8192
+  USE_POS: false
+  LOWRANK: 8
+  DOWNSAMPLE: 4 #
+  compute_map_train: false
+  bidirectional: false
+  eval_use_map: false  # 评估同样关 map，train/eval 一致        
+
+

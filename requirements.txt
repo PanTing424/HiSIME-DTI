@@ -1,0 +1,16 @@
+torch
+torch-geometric==2.6.1
+torchmetrics==1.6.0
+dgl
+dgllife
+fair-esm
+transformers
+numpy
+pandas
+scikit-learn
+prettytable
+rdkit
+yacs
+pyarrow
+tqdm
+mamba-ssm
