@@ -492,6 +492,13 @@ Resources that are still not included in the GitHub repo:
 - the main ESM checkpoint `pretrained/esm/esm1b_t33_650M_UR50S.pt`
 - local training outputs such as `results_adaptive/` and `trained_models_adaptive/`
 
+Official ESM download links:
+
+- main checkpoint:
+  `https://dl.fbaipublicfiles.com/fair-esm/models/esm1b_t33_650M_UR50S.pt`
+- auxiliary regression file:
+  `https://dl.fbaipublicfiles.com/fair-esm/regression/esm1b_t33_650M_UR50S-contact-regression.pt`
+
 Expected local paths:
 
 ```text
@@ -1006,6 +1013,13 @@ results_adaptive/kiba/seed14/
 
 - 主 ESM 权重 `pretrained/esm/esm1b_t33_650M_UR50S.pt`
 - 本地训练输出，如 `results_adaptive/` 和 `trained_models_adaptive/`
+
+官方 ESM 下载链接：
+
+- 主权重：
+  `https://dl.fbaipublicfiles.com/fair-esm/models/esm1b_t33_650M_UR50S.pt`
+- 辅助回归文件：
+  `https://dl.fbaipublicfiles.com/fair-esm/regression/esm1b_t33_650M_UR50S-contact-regression.pt`
 
 本地期望路径如下：
 
