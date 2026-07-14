@@ -19,10 +19,6 @@ trained_models_adaptive/
 .DS_Store
 
 # Large local resources kept outside public git history
-Data/**
-!Data/sample_data/
-!Data/sample_data/**
-3D_Features/**
 pretrained/esm/*.pt
 pretrained/esm/*.pth
 pretrained/esm/*.bin
