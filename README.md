@@ -483,7 +483,33 @@ Useful artifacts:
 - `cross_mamba` depends on `mamba-ssm` and a usable CUDA environment
 - the repository is large because it includes datasets, 3D features, and local pretrained checkpoints
 
-### 16. References
+### 16. Local Resource Preparation
+
+The public GitHub repository keeps the project lightweight enough for code release and version control. Some large local resources are therefore not included in the GitHub snapshot and should be prepared manually before full training.
+
+Resources typically kept outside the GitHub repo:
+
+- full benchmark datasets under `Data/` except `Data/sample_data/`
+- precomputed 3D molecular features under `3D_Features/`
+- the main ESM checkpoint `pretrained/esm/esm1b_t33_650M_UR50S.pt`
+- local training outputs such as `results_adaptive/` and `trained_models_adaptive/`
+
+Expected local paths:
+
+```text
+HiSIME-DTI/
+├── Data/
+├── 3D_Features/
+└── pretrained/esm/esm1b_t33_650M_UR50S.pt
+```
+
+If these resources are missing:
+
+- training can still be inspected from code level
+- `Data/sample_data/` can still be used as a small example
+- full experiments will require restoring the complete local resources to the paths above
+
+### 17. References
 
 - ESM: https://github.com/facebookresearch/esm
 - Mamba: https://github.com/state-spaces/mamba
@@ -971,7 +997,33 @@ results_adaptive/kiba/seed14/
 - `cross_mamba` 依赖 `mamba-ssm` 和可用的 CUDA 环境
 - 由于仓库直接包含了数据、3D 特征和本地预训练权重，所以总体体积较大
 
-### 16. 参考项目
+### 16. 本地资源准备说明
+
+公开的 GitHub 仓库需要保持适合代码发布与版本管理的体量，因此有一部分本地大资源不会直接包含在 GitHub 快照中，完整训练前需要手动补齐。
+
+通常不会直接放进 GitHub 仓库的大资源包括：
+
+- `Data/` 下除 `Data/sample_data/` 以外的完整基准数据
+- `3D_Features/` 下的预计算 3D 分子特征
+- 主 ESM 权重 `pretrained/esm/esm1b_t33_650M_UR50S.pt`
+- 本地训练输出，如 `results_adaptive/` 和 `trained_models_adaptive/`
+
+本地期望路径如下：
+
+```text
+HiSIME-DTI/
+├── Data/
+├── 3D_Features/
+└── pretrained/esm/esm1b_t33_650M_UR50S.pt
+```
+
+如果这些资源暂时缺失：
+
+- 仍然可以查看完整代码逻辑
+- 仍然可以用 `Data/sample_data/` 做小样例格式检查
+- 但若要复现实验，需要把完整本地资源恢复到上述路径
+
+### 17. 参考项目
 
 - ESM: https://github.com/facebookresearch/esm
 - Mamba: https://github.com/state-spaces/mamba
